@@ -4,6 +4,12 @@
 export RUNNER_ALLOW_RUNASROOT=1
 export PATH=${PATH}:/actions-runner
 
+# Source all environment setup scripts (Java, Android SDK, Flutter, etc.)
+for f in /etc/profile.d/*.sh; do
+  # shellcheck source=/dev/null
+  [[ -r "$f" ]] && source "$f"
+done
+
 # Un-export these, so that they must be passed explicitly to the environment of
 # any command that needs them.  This may help prevent leaks.
 export -n ACCESS_TOKEN

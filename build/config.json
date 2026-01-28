@@ -81,7 +81,7 @@
     },
     {
       "category": "node",
-      "source": "apt",
+      "source": "script",
       "packages": [
         "nodejs"
       ]
@@ -108,6 +108,66 @@
       "source": "script",
       "packages": [
         "yq"
+      ]
+    },
+    {
+      "category": "java",
+      "source": "script",
+      "packages": [
+        "java"
+      ]
+    },
+    {
+      "category": "android",
+      "source": "script",
+      "packages": [
+        "android_sdk",
+        "android_ndk"
+      ]
+    },
+    {
+      "category": "dart",
+      "source": "script",
+      "packages": [
+        "dart"
+      ]
+    },
+    {
+      "category": "flutter",
+      "source": "script",
+      "packages": [
+        "flutter"
+      ]
+    },
+    {
+      "category": "bun",
+      "source": "script",
+      "packages": [
+        "bun"
+      ]
+    },
+    {
+      "category": "chrome",
+      "source": "script",
+      "packages": [
+        "chrome",
+        "chromedriver"
+      ]
+    },
+    {
+      "category": "linters",
+      "source": "script",
+      "packages": [
+        "ktlint",
+        "swiftformat"
+      ]
+    },
+    {
+      "category": "multimedia",
+      "source": "script",
+      "packages": [
+        "ffmpeg",
+        "opencv"
       ]
     }
   ]

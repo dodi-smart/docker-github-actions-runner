@@ -6,14 +6,15 @@ function configure_git() {
   source /etc/os-release
 
   local GIT_CORE_PPA_KEY="A1715D88E1DF1F24"
+  local GPG_OPTS="--keyserver hkps://keyserver.ubuntu.com --keyserver-options timeout=30"
 
-  gpg --keyserver hkps://keyserver.ubuntu.com --recv-keys ${GIT_CORE_PPA_KEY}
+  gpg ${GPG_OPTS} --recv-keys ${GIT_CORE_PPA_KEY}
   gpg --export ${GIT_CORE_PPA_KEY} | gpg --dearmor -o /usr/share/keyrings/git-core.gpg
 
   if [[ "${VERSION_CODENAME}" == "focal" ]]; then
     local GIT_CORE_FOCAL_PPA_KEY="E363C90F8F1B6217"
     local KEYRING_FILE="/usr/share/keyrings/git-core-focal.gpg"
-    gpg --keyserver hkps://keyserver.ubuntu.com --recv-keys ${GIT_CORE_FOCAL_PPA_KEY}
+    gpg ${GPG_OPTS} --recv-keys ${GIT_CORE_FOCAL_PPA_KEY}
     gpg --export ${GIT_CORE_FOCAL_PPA_KEY} | gpg --dearmor -o "${KEYRING_FILE}"
     echo deb [signed-by=${KEYRING_FILE}] http://ppa.launchpad.net/git-core/ppa/ubuntu focal main>/etc/apt/sources.list.d/git-core.list
 
